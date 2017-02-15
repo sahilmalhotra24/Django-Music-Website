@@ -1,9 +1,9 @@
 # Django-Music-Website
 Added It
 
-/*************** Music Website **************/
+/*************** Music Box **************/
 
-This is Music Website Built by Django.
+Music Box is Website Built on Django.
 
 You can listen, upload Your Music files.
 
