@@ -5,3 +5,8 @@ body{
 .navbar{
     border-radius: 0;
 }
+
+img{
+    width: 30%;
+    height: 40%;
+}
