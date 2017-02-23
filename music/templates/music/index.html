@@ -18,7 +18,12 @@
                 <h3>{{ album.artist }}</h3>
             <div class="row">
             <a href="{% url 'music:detail' album.id %}"><button class="btn btn-primary"><i class="glyphicon glyphicon-send"></i> Detail</button> </a>
-                <a href="#" ><button class="btn btn-danger"><i class="glyphicon glyphicon-trash" ></i></button> </a>
+
+                <form action="{% url 'music:album-delte' album.id %}" method="post" style="display: inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="album_id" value="{{ album.id }}">
+                    <button class="btn btn-danger" type="submit"><i class="glyphicon glyphicon-trash" ></i></button>
+                </form>
             </div></div>
             </div>
         {% endfor %}
