@@ -7,28 +7,51 @@
 </head>
 <body>
 {% block body %}
-    <img src="{{ album.logo }}">
+    <div class="row rowurs">
 
+    <div class="col-md-4">
+        <div class="breif">
+    <img src="{{ album.logo }}">
     <h1>{{ album.album_title }}</h1>
     <h3>{{ album.artist }}</h3>
+    </div>
+    </div>
+
+    <div class="col-md-8">
 
 {% if error_message %}
 <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-<form action="{% url 'music:fav' album.id %}" method="post">
-    {% csrf_token %}
+
+    <button class="btn btn-primary">View all</button>
+    <a class="text-primary" href="#">Add Song</a><br>
+
+    <h1 class="text-primary">All Songs</h1>
+    <div class="music-details">
+
+    <div class="row">
+    <h3 class="text-primary col-md-4 text-center">Song Name</h3>
+    <h3 class="text-primary col-md-4 text-center">File Type</h3>
+    <h3 class="text-primary col-md-4 text-center">Action</h3>
+
+
+    <div class="songs">
     {% for song in album.song_set.all %}
-        <input type="radio" id = "song{{ forloop.counter }}" name="song" value="{{ song.id }}">
-        <label for="song{{ forloop.counter }}">
+        <p1 for="song{{ forloop.counter }}" class="text col-md-4">
             {{ song.song_title }}
-            {% if song.is_fav %}
-                <p1>Fav</p1>
-            {% endif %}
-        </label><br>
+
+        </p1>
+
+        <p1 class="text col-md-4" >{{ song.file_type }}</p1>
+        <p1 class="text col-md-4" ><i class="glyphicon glyphicon-play"></i><i class="glyphicon glyphicon-save"></i> </p1>
     {% endfor %}
-<input type="submit" value="favorite">
-</form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
 {% endblock %}
 </body>
 </html>
